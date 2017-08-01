@@ -28,10 +28,14 @@ var kick = new Howl({
 var snare = new Howl({
   src: ['sounds/snare.wav']
 });
+var laugh = new Howl({
+  src: ['sounds/sitcom_laugh.wav']
+});
 var airhorn_button = document.querySelector("#airhorn");
 var vocal_airhorn_button = document.querySelector("#vocal_airhorn");
 var kick_button = document.querySelector("#kick");
 var snare_button = document.querySelector("#snare");
+var laugh_button = document.querySelector("#laugh");
 airhorn_button.addEventListener("click", function(){
 	if(airhorn.playing())
 		airhorn.stop();
@@ -51,6 +55,11 @@ snare_button.addEventListener("click", function(){
 	if(snare.playing())
 		snare.stop();
 	snare.play();
+});
+laugh_button.addEventListener("click", function(){
+	if(laugh.playing())
+		laugh.stop();
+	laugh.play();
 });
 
 

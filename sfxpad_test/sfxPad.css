@@ -7,7 +7,7 @@ body {
 .square {
 	width: 40%;
 	background-color: purple;
-	padding-bottom: 40%; /*could also use padding-top*/
+	padding-bottom: 30%; /*could also use padding-top*/
 	float: left;
 	margin: 2.5% 5%;
 	border-radius: 15%;
@@ -29,6 +29,9 @@ body {
 #snare {
 	background-color: skyblue;
 }
+#laugh {
+	background-color: pink;
+}
 
 #container {
 	margin: 20px auto;
@@ -43,7 +46,7 @@ h1 {
 	background-color: #c0392b;
 	margin: 0;
 	text-transform: uppercase;
-	padding: 20px 0;
+	padding: 10px 0;
 }
 
 #stripe {
