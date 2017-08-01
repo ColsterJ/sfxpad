@@ -9,7 +9,7 @@ body {
 	background-color: purple;
 	padding-bottom: 30%; /*could also use padding-top*/
 	float: left;
-	margin: 2.5% 5%;
+	margin: 2% 5%;
 	border-radius: 15%;
 	transition: background 0.25s;
 	/*To be as browser-friendly as possible, use these*/
@@ -34,7 +34,7 @@ body {
 }
 
 #container {
-	margin: 20px auto;
+	margin: 5px auto;
 	max-width: 1000px;
 }
 
