@@ -2,18 +2,20 @@ body {
 	background-color: #232323;
 	margin: 0;
 	font-family: "Montserrat", "Avenir", "Segoe UI";
+}
 
-	user-select:none;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select:none;
-	-o-user-select:none;
+p {
+	color: silver;
+	text-align: center;
+	font-weight: bold;
 }
 
 .square {
 	width: 40%;
+	height: 40%;
 	background-color: purple;
 	padding-bottom: 30%; /*could also use padding-top*/
+	text-overflow: ;
 	float: left;
 	margin: 2% 5%;
 	border-radius: 15%;
@@ -24,10 +26,10 @@ body {
 }
 
 #airhorn {
-	background-color: crimson;
+	background-color: orange;
 }
 #vocal_airhorn {
-	background-color: orange;
+	background-color: crimson;
 }
 #kick {
 	background-color: blue;

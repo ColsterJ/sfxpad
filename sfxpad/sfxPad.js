@@ -37,33 +37,63 @@ var kick_button = document.querySelector("#kick");
 var snare_button = document.querySelector("#snare");
 var laugh_button = document.querySelector("#laugh");
 airhorn_button.addEventListener("click", function(){
+	if(Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
+	    Howler.ctx.resume().then(function() {
+	        console.log("AudioContext resumed!");
+	        // fire your callback here
+	    });
+	}
 	if(airhorn.playing())
 		airhorn.stop();
 	airhorn.play();
 });
 vocal_airhorn_button.addEventListener("click", function(){
+	if(Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
+	    Howler.ctx.resume().then(function() {
+	        console.log("AudioContext resumed!");
+	        // fire your callback here
+	    });
+	}
 	if(vocal_airhorn.playing())
 		vocal_airhorn.stop();
 	vocal_airhorn.play();
 });
 kick_button.addEventListener("click", function(){
+	if(Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
+	    Howler.ctx.resume().then(function() {
+	        console.log("AudioContext resumed!");
+	        // fire your callback here
+	    });
+	}
 	if(kick.playing())
 		kick.stop();
 	kick.play();
 });
 snare_button.addEventListener("click", function(){
+	if(Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
+	    Howler.ctx.resume().then(function() {
+	        console.log("AudioContext resumed!");
+	        // fire your callback here
+	    });
+	}
 	if(snare.playing())
 		snare.stop();
 	snare.play();
 });
 laugh_button.addEventListener("click", function(){
+	if(Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
+	    Howler.ctx.resume().then(function() {
+	        console.log("AudioContext resumed!");
+	        // fire your callback here
+	    });
+	}
 	if(laugh.playing())
 		laugh.stop();
 	laugh.play();
 });
 
 
-init();
-function init(){
-	setupSquares();
-}
+// init();
+// function init(){
+// 	setupSquares();
+// }
