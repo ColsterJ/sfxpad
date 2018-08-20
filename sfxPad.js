@@ -8,11 +8,11 @@ var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
 
 // Disable 300ms click delay on iOS
-// if ('addEventListener' in document) {
-// 	document.addEventListener('DOMContentLoaded', function() {
-// 		FastClick.attach(document.body);
-// 	}, false);
-// }
+if ('addEventListener' in document) {
+	document.addEventListener('DOMContentLoaded', function() {
+		FastClick.attach(document.body);
+	}, false);
+}
 
 Howler.volume(0.5);
 
