@@ -16,7 +16,7 @@ p {
 	height: 40%;
 	background-color: purple;
 	padding-bottom: 30%; /*could also use padding-top*/
-	text-overflow: ;
+	text-overflow: hidden;
 	float: left;
 	margin: 2% 5%;
 	border-radius: 15%;
