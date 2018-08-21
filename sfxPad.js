@@ -85,7 +85,7 @@ laugh_button.addEventListener("touchstart", function(){
 	laugh.play();
 });
 
-// disable iOS's default touchmove gestures, works in Safari and on Home Screen
+// disable iOS's default touchmove gestures
 window.addEventListener("touchmove", function(event) {event.preventDefault();}, {passive: false} );
 // due to a change in iOS WebKit behavior, unless passive marked false preventDefault will be
 // ignored
