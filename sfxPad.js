@@ -7,13 +7,6 @@ var squares = document.querySelectorAll(".square");
 var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
 
-// Disable 300ms click delay on iOS
-// if ('addEventListener' in document) {
-// 	document.addEventListener('DOMContentLoaded', function() {
-// 		FastClick.attach(document.body);
-// 	}, false);
-// }
-
 Howler.volume(0.5);
 
 var airhorn = new Howl({
@@ -36,7 +29,7 @@ var vocal_airhorn_button = document.querySelector("#vocal_airhorn");
 var kick_button = document.querySelector("#kick");
 var snare_button = document.querySelector("#snare");
 var laugh_button = document.querySelector("#laugh");
-airhorn_button.addEventListener("click", function(){
+airhorn_button.addEventListener("touchstart", function(){
 	if(Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
 	    Howler.ctx.resume().then(function() {
 	        console.log("AudioContext resumed!");
@@ -47,7 +40,7 @@ airhorn_button.addEventListener("click", function(){
 		airhorn.stop();
 	airhorn.play();
 });
-vocal_airhorn_button.addEventListener("click", function(){
+vocal_airhorn_button.addEventListener("touchstart", function(){
 	if(Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
 	    Howler.ctx.resume().then(function() {
 	        console.log("AudioContext resumed!");
@@ -58,7 +51,7 @@ vocal_airhorn_button.addEventListener("click", function(){
 		vocal_airhorn.stop();
 	vocal_airhorn.play();
 });
-kick_button.addEventListener("click", function(){
+kick_button.addEventListener("touchstart", function(){
 	if(Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
 	    Howler.ctx.resume().then(function() {
 	        console.log("AudioContext resumed!");
@@ -69,7 +62,7 @@ kick_button.addEventListener("click", function(){
 		kick.stop();
 	kick.play();
 });
-snare_button.addEventListener("click", function(){
+snare_button.addEventListener("touchstart", function(){
 	if(Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
 	    Howler.ctx.resume().then(function() {
 	        console.log("AudioContext resumed!");
@@ -80,7 +73,7 @@ snare_button.addEventListener("click", function(){
 		snare.stop();
 	snare.play();
 });
-laugh_button.addEventListener("click", function(){
+laugh_button.addEventListener("touchstart", function(){
 	if(Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
 	    Howler.ctx.resume().then(function() {
 	        console.log("AudioContext resumed!");
@@ -92,8 +85,20 @@ laugh_button.addEventListener("click", function(){
 	laugh.play();
 });
 
-
-// init();
-// function init(){
-// 	setupSquares();
-// }
+// disable iOS's default touchmove gestures, works in Safari and on Home Screen
+window.addEventListener("touchmove", function(event) {event.preventDefault();}, {passive: false} );
+// due to a change in iOS WebKit behavior, unless passive marked false preventDefault will be
+// ignored
+// https://bugs.webkit.org/show_bug.cgi?id=182521
+// https://stackoverflow.com/questions/49926360/prevent-ios-11-3-overflow-bouncing
+  
+// disable double tap to zoom - works and is needed last I checked (8-20-2018)
+var lastTouchEnd = 0;
+document.addEventListener('touchend', function (event) {
+		var now = (new Date()).getTime();
+		event.preventDefault();
+		if (now - lastTouchEnd <= 300) {
+			event.preventDefault();
+		}
+		lastTouchEnd = now;
+	}, false);
