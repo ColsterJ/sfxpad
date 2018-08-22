@@ -1,12 +1,3 @@
-var numSquares = 6;
-var colors = [];
-var pickedColor;
-
-var squares = document.querySelectorAll(".square");
-// var messageDisplay = document.querySelector("#message");
-var h1 = document.querySelector("h1");
-var resetButton = document.querySelector("#reset");
-
 Howler.volume(0.5);
 
 var airhorn = new Howl({
@@ -29,61 +20,11 @@ var vocal_airhorn_button = document.querySelector("#vocal_airhorn");
 var kick_button = document.querySelector("#kick");
 var snare_button = document.querySelector("#snare");
 var laugh_button = document.querySelector("#laugh");
-airhorn_button.addEventListener("touchstart", function(){
-	if(Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
-	    Howler.ctx.resume().then(function() {
-	        console.log("AudioContext resumed!");
-	        // fire your callback here
-	    });
-	}
-	if(airhorn.playing())
-		airhorn.stop();
-	airhorn.play();
-});
-vocal_airhorn_button.addEventListener("touchstart", function(){
-	if(Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
-	    Howler.ctx.resume().then(function() {
-	        console.log("AudioContext resumed!");
-	        // fire your callback here
-	    });
-	}
-	if(vocal_airhorn.playing())
-		vocal_airhorn.stop();
-	vocal_airhorn.play();
-});
-kick_button.addEventListener("touchstart", function(){
-	if(Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
-	    Howler.ctx.resume().then(function() {
-	        console.log("AudioContext resumed!");
-	        // fire your callback here
-	    });
-	}
-	if(kick.playing())
-		kick.stop();
-	kick.play();
-});
-snare_button.addEventListener("touchstart", function(){
-	if(Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
-	    Howler.ctx.resume().then(function() {
-	        console.log("AudioContext resumed!");
-	        // fire your callback here
-	    });
-	}
-	if(snare.playing())
-		snare.stop();
-	snare.play();
-});
-laugh_button.addEventListener("touchstart", function(){
-	if(Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
-	    Howler.ctx.resume().then(function() {
-	        console.log("AudioContext resumed!");
-	        // fire your callback here
-	    });
-	}
-	if(laugh.playing())
-		laugh.stop();
-	laugh.play();
-});
+airhorn_button.addEventListener("touchstart", () => playSound(airhorn));
+vocal_airhorn_button.addEventListener("touchstart", () => playSound(vocal_airhorn));
+kick_button.addEventListener("touchstart", () => playSound(kick));
+snare_button.addEventListener("touchstart", () => playSound(snare));
+laugh_button.addEventListener("touchstart", () => playSound(laugh));
 
 // disable iOS's default touchmove gestures
 window.addEventListener("touchmove", function(event) {event.preventDefault();}, {passive: false} );
@@ -102,3 +43,44 @@ document.addEventListener('touchend', function (event) {
 		}
 		lastTouchEnd = now;
 	}, false);
+
+
+
+// Add desktop keyboard compatibility
+document.addEventListener("keydown", function (event) {
+	switch(event.key) {
+		case 'a':
+		playSound(airhorn);
+		break;
+
+		case 's':
+		playSound(vocal_airhorn);
+		break;
+
+		case 'd':
+		playSound(laugh);
+		break;
+
+		case 'z':
+		playSound(kick);
+		break;
+
+		case 'x':
+		playSound(snare);
+		break;
+
+		default:
+		break;
+	}
+});
+
+function playSound(snd) {
+	if (Howler.ctx && Howler.ctx.state && Howler.ctx.state == "suspended") {
+		Howler.ctx.resume().then(function () {
+			console.log("AudioContext resumed!");
+		});
+	}
+	if (snd.playing())
+		snd.stop();
+	snd.play();
+}
