@@ -1,6 +1,8 @@
 # sfxpad
 Drum machine-like sound effect pad, intended for mobile browsers
 
+![Screenshot](sfxpad.png)
+
 ## Current functionality
 * Plays five sounds upon tapping the squares - voice-imitated airhorn, actual airhorn, bass and snare drums, and a sitcom laugh
 * iOS (as of 8-21) - Squares can be tapped rapidly, scroll-bounce won't occur on touchmove, works well in Safari but even more responsive as a Home Screen webapp
