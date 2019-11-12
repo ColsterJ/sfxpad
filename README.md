@@ -1,5 +1,5 @@
 # sfxpad
-Drum machine-like sound effect pad, intended for mobile browsers. Try it out [here](https://coljonesdev.github.io/sfxpad/)! 
+Drum machine-like sound effect pad, intended for mobile browsers. On Mobile, touch the squares to make sounds. On a PC/Mac, use the keyboard keys (A,S,D,Z,X) instead. Try it out [here](https://coljonesdev.github.io/sfxpad/)! 
 
 ![Screenshot](sfxpad.png)
 
