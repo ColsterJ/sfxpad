@@ -1,5 +1,5 @@
 # sfxpad
-Drum machine-like sound effect pad, intended for mobile browsers
+Drum machine-like sound effect pad, intended for mobile browsers. Try it out [here](https://coljonesdev.github.io/sfxpad/)! 
 
 ![Screenshot](sfxpad.png)
 
